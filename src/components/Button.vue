@@ -1,7 +1,7 @@
 <template>
     <div :class="[rClass]">
       <button
-          @click="handleClick"
+          @click="handleClickFN($event)"
        >{{ name }}</button>
     </div>
 </template>
@@ -14,10 +14,12 @@ export default {
     name: String,
     isOrange: Boolean,
     isWide: Boolean,
+    handleClick: Function,
   },
   methods: {
-    handleClick(event) {
+    handleClickFN(event) {
       console.log(event.target.name);
+      this.$props.handleClick(this.$props.name);
     },
   },
   computed: {

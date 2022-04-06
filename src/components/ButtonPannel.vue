@@ -1,33 +1,33 @@
 <template>
     <div class="component-button-panel">
         <div>
-          <Button name="AC" @click="handleClick" />
-          <Button name="+/-" @click="handleClick" />
-          <Button name="%" @click="handleClick" />
-          <Button name="÷" @click="handleClick" isOrange />
+          <Button name="AC" :handleClick="handleClick" />
+          <Button name="+/-" :handleClick="handleClick" />
+          <Button name="%" :handleClick="handleClick" />
+          <Button name="÷" :handleClick="handleClick" isOrange />
         </div>
         <div>
-          <Button name="7" @click="handleClick" />
-          <Button name="8" @click="handleClick" />
-          <Button name="9" @click="handleClick" />
-          <Button name="x" @click="handleClick" isOrange />
+          <Button name="7" :handleClick="handleClick" />
+          <Button name="8" :handleClick="handleClick" />
+          <Button name="9" :handleClick="handleClick" />
+          <Button name="x" :handleClick="handleClick" isOrange />
         </div>
         <div>
-          <Button name="4" @click="handleClick" />
-          <Button name="5" @click="handleClick" />
-          <Button name="6" @click="handleClick" />
-          <Button name="-" @click="handleClick" isOrange />
+          <Button name="4" :handleClick="handleClick" />
+          <Button name="5" :handleClick="handleClick" />
+          <Button name="6" :handleClick="handleClick" />
+          <Button name="-" :handleClick="handleClick" isOrange />
         </div>
         <div>
-          <Button name="1" @click="handleClick" />
-          <Button name="2" @click="handleClick" />
-          <Button name="3" @click="handleClick" />
-          <Button name="+" @click="handleClick" isOrange />
+          <Button name="1" :handleClick="handleClick" />
+          <Button name="2" :handleClick="handleClick" />
+          <Button name="3" :handleClick="handleClick" />
+          <Button name="+" :handleClick="handleClick" isOrange />
         </div>
         <div>
-          <Button name="0" @click="handleClick" isWide />
-          <Button name="." @click="handleClick" />
-          <Button name="=" @click="handleClick" isOrange />
+          <Button name="0" :handleClick="handleClick" isWide />
+          <Button name="." :handleClick="handleClick" />
+          <Button name="=" :handleClick="handleClick" isOrange />
         </div>
       </div>
 </template>
@@ -45,8 +45,7 @@ export default {
 
   methods: {
     handleClick(buttonName) {
-      console.log(buttonName);
-      this.props.clickHandler(buttonName);
+      this.$props.clickHandler(buttonName);
     },
   },
 };

@@ -1,7 +1,7 @@
 <template>
   <div class="component-app">
     <Display
-      :value="0"
+      :value="next || total || 0 "
      />
     <ButtonPanel :clickHandler="handleClick" />
   </div>
@@ -17,15 +17,17 @@ export default {
   name: 'App',
   data() {
     return {
-      total: null,
+      total: 0,
       next: null,
       operation: null,
     };
   },
   methods: {
     handleClick(event) {
-      console.log('djdh', event);
-      this.data = (calculate(this.data, event));
+      const { total, next, operation } = calculate(this.$data, event);
+      this.total = total;
+      this.next = next;
+      this.operation = operation;
     },
   },
   computed: {
