@@ -17,8 +17,7 @@ export default {
     handleClick: Function,
   },
   methods: {
-    handleClickFN(event) {
-      console.log(event.target.name);
+    handleClickFN() {
       this.$props.handleClick(this.$props.name);
     },
   },
