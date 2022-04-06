@@ -1,16 +1,31 @@
 <template>
-      <div>
-        <button>{{ value }}</button>
-      </div>
+    <div>
+      <button :class="[rClass]"
+          @click="handleClick"
+       >{{ name }}</button>
+    </div>
 </template>
 
 <script>
 export default {
-  name: 'Display-',
+  name: 'Display--',
   props: {
-    value: String
-  }
-}
+    name: String,
+    isOrange: Boolean,
+    isWide: Boolean,
+  },
+  methods: {
+    handleClick(event) {
+      console.log(event.target.name);
+      alert('jj');
+    },
+  },
+  computed: {
+    rClass() {
+      return `is-component ${this.isOrange && 'orange'} ${this.isWide && 'wide'}`;
+    },
+  },
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

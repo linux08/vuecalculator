@@ -1,19 +1,18 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <Main />
 </template>
 
 <script>
-import HelloWorld from './components/Main.vue'
+import Main from './components/Main.vue';
 
-import "github-fork-ribbon-css/gh-fork-ribbon.css";
+import 'github-fork-ribbon-css/gh-fork-ribbon.css';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
-  }
-}
+    Main,
+  },
+};
 </script>
 
 <style>
