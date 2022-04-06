@@ -1,69 +1,46 @@
 <template>
-  <Main />
+  <div class="component-app">
+    <Display
+      :value="0"
+     />
+    <ButtonPanel :clickHandler="handleClick" />
+  </div>
 </template>
 
 <script>
-import Main from './components/Main.vue';
-
-import 'github-fork-ribbon-css/gh-fork-ribbon.css';
+import Display from './components/Display.vue';
+import ButtonPanel from './components/ButtonPannel.vue';
+import calculate from './logic/calculate';
 
 export default {
+  components: { Display, ButtonPanel },
   name: 'App',
-  components: {
-    Main,
+  data() {
+    return {
+      total: null,
+      next: null,
+      operation: null,
+    };
+  },
+  methods: {
+    handleClick(event) {
+      console.log('djdh', event);
+      this.data = (calculate(this.data, event));
+    },
+  },
+  computed: {
+    displayValue() {
+      return this.next || this.total || '0';
+    },
   },
 };
 </script>
 
 <style>
-html {
+.component-app {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
   height: 100%;
-  font-size: 10px;
-}
-
-body {
-  background-color: black;
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
-  height: 100%;
-}
-
-#root {
-  height: 100%;
-}
-
-body .github-fork-ribbon:before {
-  background-color: #333;
-}
-
-@media screen and (max-width: 400px) {
-  .github-fork-ribbon {
-    display: none;
-  }
-}
-
-@media (min-width: 400px) and (min-height: 400px) {
-  html {
-    font-size: 20px;
-  }
-}
-
-@media (min-width: 500px) and (min-height: 500px) {
-  html {
-    font-size: 30px;
-  }
-}
-
-@media (min-width: 600px) and (min-height: 600px) {
-  html {
-    font-size: 40px;
-  }
-}
-
-@media (min-width: 800px) and (min-height: 800px) {
-  html {
-    font-size: 50px;
-  }
 }
 </style>

@@ -10,7 +10,7 @@
   "dependencies": {
     "big.js": "^5.2.2",
     "core-js": "^3.8.3",
-    "github-fork-ribbon-css": "^0.2.1",
+    "github-fork-ribbon-css": "0.2.1",
     "vue": "^3.2.13"
   },
   "devDependencies": {

@@ -1,6 +1,6 @@
 <template>
-    <div>
-      <button :class="[rClass]"
+    <div :class="[rClass]">
+      <button
           @click="handleClick"
        >{{ name }}</button>
     </div>
@@ -8,7 +8,8 @@
 
 <script>
 export default {
-  name: 'Display--',
+  // eslint-disable-next-line vue/multi-word-component-names
+  name: 'Button',
   props: {
     name: String,
     isOrange: Boolean,
@@ -17,12 +18,11 @@ export default {
   methods: {
     handleClick(event) {
       console.log(event.target.name);
-      alert('jj');
     },
   },
   computed: {
     rClass() {
-      return `is-component ${this.isOrange && 'orange'} ${this.isWide && 'wide'}`;
+      return `component-button ${this.isOrange ? 'orange' : ''} ${this.isWide ? 'wide' : ''}`;
     },
   },
 };

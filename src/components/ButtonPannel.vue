@@ -38,7 +38,7 @@ import Button from './Button.vue';
 
 export default {
   components: { Button },
-  name: 'Display-',
+  name: 'ButtonPannel',
   props: {
     clickHandler: Function,
   },
@@ -46,7 +46,6 @@ export default {
   methods: {
     handleClick(buttonName) {
       console.log(buttonName);
-      alert('jj');
       this.props.clickHandler(buttonName);
     },
   },
@@ -55,17 +54,19 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.component-display {
+.component-button-panel {
   background-color: #858694;
-  color: white;
-  text-align: right;
-  font-weight: 200;
-  flex: 0 0 auto;
-  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  flex: 1 0 auto;
 }
 
-.component-display > div {
-  font-size: 2.5rem;
-  padding: 0.2rem 0.7rem 0.1rem 0.5rem;
+.component-button-panel > div {
+  width: 100%;
+  margin-bottom: 1px;
+  flex: 1 0 auto;
+  display: flex;
 }
+
 </style>

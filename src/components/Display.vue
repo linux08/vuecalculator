@@ -1,10 +1,13 @@
 <template>
-     <div class="component-display">{{value}}</div>
+  <div class="component-display">
+    <div>{{value}}</div>
+    </div>
 </template>
 
 <script>
 export default {
-  name: 'Display-',
+  // eslint-disable-next-line vue/multi-word-component-names
+  name: 'Display',
   props: {
     value: String,
   },
