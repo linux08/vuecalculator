@@ -1,32 +1,25 @@
 <template>
-    <div :class="[rClass]">
-      <button
-          @click="handleClickFN($event)"
-       >{{ name }}</button>
-    </div>
+  <div :class="`component-button ${props.isOrange ?
+      'orange' : ''} ${props.isWide ?
+      'wide' : ''}`">
+    <button @click="handleClickFN($event)">{{ name }}</button>
+  </div>
 </template>
 
-<script>
-export default {
-  // eslint-disable-next-line vue/multi-word-component-names
-  name: 'Button',
-  props: {
-    name: String,
-    isOrange: Boolean,
-    isWide: Boolean,
-    handleClick: Function,
-  },
-  methods: {
-    handleClickFN() {
-      this.$props.handleClick(this.$props.name);
-    },
-  },
-  computed: {
-    rClass() {
-      return `component-button ${this.isOrange ? 'orange' : ''} ${this.isWide ? 'wide' : ''}`;
-    },
-  },
+<script setup>
+
+import { defineProps } from 'vue';
+
+const props = defineProps({
+  name: String,
+  isOrange: Boolean,
+  isWide: Boolean,
+  handleClick: Function,
+});
+const handleClickFN = () => {
+  props.handleClick(props.name);
 };
+
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
