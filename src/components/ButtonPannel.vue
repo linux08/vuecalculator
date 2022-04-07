@@ -32,23 +32,19 @@
       </div>
 </template>
 
-<script>
+<script setup>
 
+import { defineProps } from 'vue';
 import Button from './Button.vue';
 
-export default {
-  components: { Button },
-  name: 'ButtonPannel',
-  props: {
-    clickHandler: Function,
-  },
+const props = defineProps({
+  clickHandler: Function,
+});
 
-  methods: {
-    handleClick(buttonName) {
-      this.$props.clickHandler(buttonName);
-    },
-  },
+const handleClick = (buttonName) => {
+  props.clickHandler(buttonName);
 };
+
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

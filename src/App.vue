@@ -7,37 +7,25 @@
   </div>
 </template>
 
-<script>
-import { reactive, defineComponent } from 'vue';
+<script setup>
+import { reactive } from 'vue';
 import Display from './components/Display.vue';
 import ButtonPanel from './components/ButtonPannel.vue';
 import calculate from './logic/calculate';
 
-export default defineComponent({
-  components: { Display, ButtonPanel },
-  name: 'App',
-  setup() {
-    const state = reactive({
-      total: 0,
-      next: null,
-      operation: null,
-    });
-
-    const handleClick = (event) => {
-      const { total, next, operation } = calculate(state, event);
-      state.total = total;
-      state.next = next;
-      state.operation = operation;
-    };
-    const displayValue = () => this.next || this.total || '0';
-
-    return {
-      state,
-      handleClick,
-      displayValue,
-    };
-  },
+const state = reactive({
+  total: 0,
+  next: null,
+  operation: null,
 });
+
+const handleClick = (event) => {
+  const { total, next, operation } = calculate(state, event);
+  state.total = total;
+  state.next = next;
+  state.operation = operation;
+};
+
 </script>
 
 <style>
